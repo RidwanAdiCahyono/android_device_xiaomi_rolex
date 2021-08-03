@@ -20,18 +20,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 
-# Inherit some common Wave-OS stuff
-$(call inherit-product, vendor/wave/configs/common.mk)
+# Inherit some common Lineage stuff
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+# Sakura Stuff
+SAKURA_OFFICIAL := false
+SAKURA_MAINTAINER := ItoRenz
+SAKURA_BUILD_TYPE=vanilla
+
+# Some Build Stuff
 TARGET_BOOT_ANIMATION_RES := 720
-
-TARGET_OPT_OUT_GCAM_GO := true
+TARGET_FACE_UNLOCK := true
+TARGET_USE_PIXEL_CHARGING := true
 
 # Modify Codename in ZIP
-WAVE_BUILD := rolex-riva
-
-# Vanilla varient
-VANILLA_BUILD := true
+LINEAGE_BUILD := rolex-riva
 
 # Inherit from rolex device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
@@ -40,7 +43,7 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi 4A
 PRODUCT_DEVICE := rolex
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_NAME := wave_rolex
+PRODUCT_NAME := lineage_rolex
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
